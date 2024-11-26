@@ -80,7 +80,7 @@ const Arsip = () => {
         <Header />
         <PageHeader
           title="Arsip Kamu"
-          buttonicon="icons/home.svg"
+          buttonicon="/icons/home.svg"
           buttontext="Halaman Utama"
           linkto="/"
         />

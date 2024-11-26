@@ -1,27 +1,31 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home.jsx'
-import TambahCatatan from './TambahCatatan.jsx'
-import Arsip from './pages/Arsip.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import TambahCatatan from "./TambahCatatan.jsx";
+import Arsip from "./pages/Arsip.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home />,
   },
   {
-    path: '/tambah',
+    path: "/tambah",
     element: <TambahCatatan />,
   },
   {
-    path: '/arsip',
+    path: "/arsip",
     element: <Arsip />,
-  }
-])
+  },
+]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter basename="/note-app-reactjs">
       <RouterProvider router={router} />

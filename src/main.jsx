@@ -27,8 +27,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/note-app-reactjs">
-      <RouterProvider router={router} />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </StrictMode>
 );

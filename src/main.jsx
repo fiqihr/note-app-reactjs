@@ -1,10 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-import Home from './pages/Home.jsx'
-import { BrowserRouter } from 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './pages/Home.jsx'
 import TambahCatatan from './TambahCatatan.jsx'
 import Arsip from './pages/Arsip.jsx'
 
@@ -25,8 +23,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
-    {/* <App /> */}
-    {/* <Home /> */}
-  </StrictMode>,
-)
+    <BrowserRouter basename="/note-app-reactjs">
+      <RouterProvider router={router} />
+    </BrowserRouter>
+  </StrictMode>
+);

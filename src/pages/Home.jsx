@@ -9,10 +9,6 @@ import { getInitialData } from "../data/Notes";
 import Swal from "sweetalert2";
 
 const Home = () => {
-  // const [isPopupOpen, setPopupOpen] = useState(false);
-  // const [notes, setNotes] = useState(() => {
-  //   return JSON.parse(localStorage.getItem("notes")) || [];
-  // });
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [notes, setNotes] = useState(() => {
     const storedNotes = JSON.parse(localStorage.getItem("notes"));

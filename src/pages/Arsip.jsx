@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/layouts/Header";
 import PageHeader from "../components/layouts/PageHeader";
-import Button from "../components/elements/Button";
 import Card from "../components/fragments/Card";
 import Swal from "sweetalert2";
 
@@ -17,7 +16,7 @@ const Arsip = () => {
   useEffect(() => {
     const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
     setNotes(storedNotes);
-    document.title = "Home | Note App";
+    document.title = "Arsip | Note App";
   }, []);
 
   useEffect(() => {
@@ -43,13 +42,6 @@ const Arsip = () => {
         setNotes(updatedNotes);
       }
     });
-  };
-
-  const archiveNote = (id) => {
-    const updatedNotes = notes.map((note) =>
-      note.id === id ? { ...note, isArchived: true } : note
-    );
-    setNotes(updatedNotes);
   };
 
   const unarchiveNote = (id) => {
@@ -108,7 +100,6 @@ const Arsip = () => {
           )}
         </div>
       </div>
-      {/* {isPopupOpen && <PopUpAdd setPopupOpen={setPopupOpen} />} */}
     </div>
   );
 };

@@ -5,13 +5,24 @@ import Button from "../components/elements/Button";
 import Card from "../components/fragments/Card";
 import PopUpAdd from "../components/fragments/PopUpAdd";
 import PageHeader from "../components/layouts/PageHeader";
-import notes from "../data/Notes";
+import { getInitialData } from "../data/Notes";
 import Swal from "sweetalert2";
 
 const Home = () => {
+  // const [isPopupOpen, setPopupOpen] = useState(false);
+  // const [notes, setNotes] = useState(() => {
+  //   return JSON.parse(localStorage.getItem("notes")) || [];
+  // });
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [notes, setNotes] = useState(() => {
-    return JSON.parse(localStorage.getItem("notes")) || [];
+    const storedNotes = JSON.parse(localStorage.getItem("notes"));
+    if (storedNotes) {
+      return storedNotes;
+    } else {
+      const initialData = getInitialData();
+      localStorage.setItem("notes", JSON.stringify(initialData));
+      return initialData;
+    }
   });
 
   useEffect(() => {
@@ -90,21 +101,27 @@ const Home = () => {
           />
         </div>
         <div className="md:grid md:grid-cols-2 md:gap-4 lg:grid lg:grid-cols-3 lg:gap-4">
-          {notes
-            .filter((note) => !note.isArchived)
-            .map((note) => (
-              <Card
-                key={note.id}
-                id={note.id}
-                title={note.title}
-                date={note.date}
-                content={note.content}
-                archivebtntext="Arsipkan"
-                archivebtnicon="/icons/add-archive.svg"
-                archivebtnclick={() => archiveNote(note.id)}
-                deletebtnclick={() => deleteNote(note.id)}
-              />
-            ))}
+          {notes.filter((note) => !note.isArchived).length === 0 ? (
+            <p className="flex justify-center p-28 italic text-4xl text-center text-gray-300 col-span-full">
+              Tidak ada catatan
+            </p>
+          ) : (
+            notes
+              .filter((note) => !note.isArchived)
+              .map((note) => (
+                <Card
+                  key={note.id}
+                  id={note.id}
+                  title={note.title}
+                  date={note.date}
+                  content={note.content}
+                  archivebtntext="Arsipkan"
+                  archivebtnicon="/icons/add-archive.svg"
+                  archivebtnclick={() => archiveNote(note.id)}
+                  deletebtnclick={() => deleteNote(note.id)}
+                />
+              ))
+          )}
         </div>
       </div>
       {isPopupOpen && (

@@ -102,7 +102,7 @@ const Home = () => {
         </div>
         <div className="md:grid md:grid-cols-2 md:gap-4 lg:grid lg:grid-cols-3 lg:gap-4">
           {notes.filter((note) => !note.isArchived).length === 0 ? (
-            <p className="flex justify-center p-28 italic text-4xl text-center text-gray-300 col-span-full">
+            <p className="flex justify-center py-28 italic text-4xl text-center text-gray-300 col-span-full">
               Tidak ada catatan
             </p>
           ) : (

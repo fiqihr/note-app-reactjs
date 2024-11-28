@@ -86,8 +86,8 @@ const Arsip = () => {
         />
         <div className="md:grid md:grid-cols-2 md:gap-4 lg:grid lg:grid-cols-3 lg:gap-4">
           {notes.filter((note) => note.isArchived).length === 0 ? (
-            <p className="text-center text-gray-500 col-span-full">
-              Tidak ada catatan di arsip
+            <p className="flex justify-center py-28 italic text-4xl text-center text-gray-300 col-span-full">
+              Tidak ada arsip
             </p>
           ) : (
             notes

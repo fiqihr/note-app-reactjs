@@ -7,17 +7,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import TambahCatatan from "./TambahCatatan.jsx";
 import Arsip from "./pages/Arsip.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-  },
-  {
-    path: "/tambah",
-    element: <TambahCatatan />,
   },
   {
     path: "/arsip",
